@@ -48,13 +48,13 @@ export default function GaleriaMemorias() {
                   {item.src ? (
                     item.type === "video" ? (
                       <video
-                        src={`${import.meta.env.BASE_URL}${item.src.replace(/^\//, "")}`}
+                        src={item.src.startsWith("/") ? item.src : `${import.meta.env.BASE_URL}${item.src}`}
                         controls
                         className="h-full w-full object-cover"
                       />
                     ) : (
                       <img
-                        src={`${import.meta.env.BASE_URL}${item.src.replace(/^\//, "")}`}
+                        src={item.src.startsWith("/") ? item.src : `${import.meta.env.BASE_URL}${item.src}`}
                         alt={item.legenda}
                         loading="lazy"
                         className="h-full w-full object-cover"
