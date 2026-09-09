@@ -75,7 +75,7 @@ export default function CartaEnfeiticada() {
                   className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center sm:h-24 sm:w-24"
                 >
                   <img
-                    src="/selo.png"
+                    src={`${import.meta.env.BASE_URL}selo.png`}
                     alt="Brasão no selo de cera"
                     className="h-14 w-14 object-contain sm:h-16 sm:w-16"
                   />

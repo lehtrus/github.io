@@ -35,7 +35,7 @@ export default function PocaoMusical() {
             }}
           >
             <img
-              src="/disco.png"
+              src={`${import.meta.env.BASE_URL}disco.png`}
               alt="Disco de vinil azul"
               className="h-full w-full rounded-full object-cover"
             />
