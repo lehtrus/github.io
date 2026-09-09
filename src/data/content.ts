@@ -7,6 +7,13 @@
  * ================================================================
  */
 
+import foto1 from "@/assets/gallery/foto1.jpg";
+import foto2 from "@/assets/gallery/foto2.jpg";
+import foto3 from "@/assets/gallery/foto3.jpg";
+import foto4 from "@/assets/gallery/foto4.jpg";
+import foto5 from "@/assets/gallery/foto5.jpg";
+import foto6 from "@/assets/gallery/foto6.jpg";
+
 export const siteConfig = {
   /** Nome de quem recebe a carta */
   nomeDestinataria: "Ana Júlia",
@@ -143,42 +150,42 @@ export const memorias: MemoriaItem[] = [
   {
     id: "mem-01",
     type: "image",
-    src: "gallery/foto1.jpg",
+    src: foto1,
     legenda: "Harry Potter e o Prisioneiro de Azkaban — J. K. Rowling",
     data: "",
   },
   {
     id: "mem-02",
     type: "image",
-    src: "gallery/foto2.jpg",
+    src: foto2,
     legenda: "Minha Vida — Rita Lee",
     data: "",
   },
   {
     id: "mem-03",
     type: "image",
-    src: "gallery/foto3.jpg",
+    src: foto3,
     legenda: "Totalmente Seu — Marisa Monte",
     data: "",
   },
   {
     id: "mem-04",
     type: "image",
-    src: "gallery/foto4.jpg",
+    src: foto4,
     legenda: "Me Chamando de Paixão — Jorge Ben Jor",
     data: "",
   },
   {
     id: "mem-05",
     type: "image",
-    src: "gallery/foto5.jpg",
+    src: foto5,
     legenda: "Mulher de Fases — Raimundos",
     data: "",
   },
   {
     id: "mem-06",
     type: "image",
-    src: "gallery/foto6.jpg",
+    src: foto6,
     legenda: "Gatinha Comunista — Vitroles",
     data: "",
   },
