@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- paleta ---- */
+  --color-noite: #07111f;
+  --color-noite-2: #0d1d34;
+  --color-vinho: #164a78;
+  --color-vinho-escuro: #092b4d;
+  --color-dourado: #5aa9df;
+  --color-dourado-claro: #b9e0f7;
+  --color-pergaminho: #ecdfbd;
+  --color-pergaminho-escuro: #d8c69c;
+  --color-tinta: #241a12;
+
+  /* ---- tipografia ---- */
+  --font-display: "Cinzel Decorative", serif;
+  --font-corpo: "Cormorant Garamond", serif;
+  --font-selo: "IM Fell English SC", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-noite);
+  color: var(--color-pergaminho);
+  font-family: var(--font-corpo);
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* foco visível para acessibilidade de teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-dourado-claro);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------- */
+/* Textura de pergaminho (gerada via CSS, sem imagens)  */
+/* ---------------------------------------------------- */
+.textura-pergaminho {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(22, 74, 120, 0.10) 0, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(22, 74, 120, 0.12) 0, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(36, 26, 18, 0.06) 0, transparent 60%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(36, 26, 18, 0.035) 0px,
+      rgba(36, 26, 18, 0.035) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  background-color: var(--color-pergaminho);
+  box-shadow:
+    inset 0 0 60px rgba(22, 74, 120, 0.25),
+    inset 0 0 120px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------------------------------------------------- */
+/* Céu estrelado                                        */
+/* ---------------------------------------------------- */
+.ceu-estrelado {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(22, 74, 120, 0.35), transparent 55%),
+    linear-gradient(180deg, var(--color-noite) 0%, var(--color-noite-2) 100%);
+  position: relative;
+}
+
+.estrela {
+  position: absolute;
+  border-radius: 9999px;
+  background: var(--color-dourado-claro);
+  animation: cintilar 4s ease-in-out infinite;
+}
+
+@keyframes cintilar {
+  0%, 100% { opacity: 0.25; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+.flutuando {
+  animation: flutuar 6s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------- */
+/* Chama de vela                                        */
+/* ---------------------------------------------------- */
+@keyframes tremeluzir {
+  0%, 100% { transform: scaleY(1) scaleX(1) rotate(-1deg); opacity: 0.95; }
+  25% { transform: scaleY(1.08) scaleX(0.94) rotate(1.5deg); opacity: 1; }
+  50% { transform: scaleY(0.92) scaleX(1.05) rotate(-2deg); opacity: 0.9; }
+  75% { transform: scaleY(1.05) scaleX(0.97) rotate(1deg); opacity: 1; }
+}
+
+.chama {
+  animation: tremeluzir 2.4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* ---------------------------------------------------- */
+/* Poeira mágica (partículas subindo)                    */
+/* ---------------------------------------------------- */
+@keyframes subir-poeira {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-140px) translateX(var(--deriva, 10px)); opacity: 0; }
+}
+
+.particula-magica {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, var(--color-dourado-claro), transparent 70%);
+  animation: subir-poeira 3.6s ease-in infinite;
+}
+
+/* ---------------------------------------------------- */
+/* Selo de cera                                          */
+/* ---------------------------------------------------- */
+.selo-cera {
+  background: radial-gradient(circle at 35% 30%, #236da8, var(--color-vinho-escuro) 70%);
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.5),
+    inset 0 2px 3px rgba(255, 255, 255, 0.15),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+
+.selo-cera:hover {
+  transform: scale(1.06) rotate(-3deg);
+}
+
+/* ---------------------------------------------------- */
+/* Vinil / disco                                         */
+/* ---------------------------------------------------- */
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.disco-girando {
+  animation: girar 8s linear infinite;
+}
+
+.disco-pausado {
+  animation-play-state: paused;
+}
+
+/* scrollbar discreta */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-noite);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-vinho);
+  border-radius: 9999px;
+  border: 2px solid var(--color-noite);
+}
